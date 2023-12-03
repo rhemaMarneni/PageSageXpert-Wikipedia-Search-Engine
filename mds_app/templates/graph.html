@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3D Force-Directed Graph Example</title>
+    <script src="https://unpkg.com/3d-force-graph@1.73.0"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body style="background-color: white;">
+
+    <div id="graph-container" style="width: 800px; height: 600px;"></div>
+
+    <script>
+        const container = document.getElementById('graph-container');
+        const graph = ForceGraph3D()(container);
+        graph.backgroundColor('white');
+
+        // Fetch the CSV data from the server using d3.csv
+        Promise.all([
+            d3.csv('../static/subset_part1.csv'),
+            d3.csv('../static/subset_part2.csv'),
+            d3.csv('../static/subset_part3.csv')
+        ]).then(dataFiles => {
+            // Combine data from all files
+            const dfData = dataFiles.reduce((acc, data) => acc.concat(data), []);
+            console.log("tegsbdjnkwsndk", dfData.length)
+
+            // Convert DataFrame data to the expected JSON format
+            const graphData = {
+                nodes: [],
+                links: [],
+            };
+
+            // Use a set to keep track of unique nodes
+            const uniqueNodes = new Set();
+
+            // Define the sources you want to include
+            const includedSources = ['330', '656', '677', '31713', '59849571', '59850441'];
+            console.log("I am here")
+            // Add source nodes for included sources
+            dfData.forEach(row => {
+                if (!row || !row.source) {
+                    console.error('Invalid row or missing source:', row);
+                    return;  // Skip this row
+                }
+
+                // Check if the node is already added and if the source is included
+                if (!uniqueNodes.has(row.source) && includedSources.includes(row.source)) {
+                    const sourceNode = {
+                        id: row.source.toString(),
+                        name: `Node ${row.source}`,
+                        val: 0
+                    };
+                    graphData.nodes.push(sourceNode);
+                    uniqueNodes.add(row.source);
+                }
+
+                // Check if row.target_id exists and is a string
+                if (row.target_id && typeof row.target_id === 'string') {
+                    // Parse the string representation of an array into an actual array
+                    const targetIdsArray = JSON.parse(row.target_id);
+
+                    // Add target nodes and links only for included sources
+                    if (includedSources.includes(row.source)) {
+                        targetIdsArray.forEach(targetID => {
+                            // Check if the node is already added
+                            if (!uniqueNodes.has(targetID)) {
+                                const targetNode = {
+                                    id: targetID.toString(),
+                                    name: `Node ${targetID}`,
+                                    val: 0
+                                };
+                                graphData.nodes.push(targetNode);
+                                uniqueNodes.add(targetID);
+                            }
+
+                            const link = {
+                                source: row.source.toString(),
+                                target: targetID.toString(),
+                                weight: 10
+                            };
+                            graphData.links.push(link);
+                        });
+                    }
+                } else {
+                    console.warn('Row has no target_id or it is not a string:', row);
+                }
+            });
+
+            // Initialize the 3D Force-Directed Graph with the generated data
+            graph
+                .graphData(graphData)
+                .nodeLabel('name') // Customize node labels
+                .linkOpacity(1) // Set link opacity to 1 for solid lines
+                .linkColor(() => 'black') // Set all link colors to black
+                .linkWidth(1) // Set link width to 1 for a single line
+                .linkDirectionalArrowLength(0) // Remove arrows from the links
+                .nodeColor(node => `#${node.id.slice(-6)}`) // Set node color based on the last 6 characters of the ID
+                .onNodeClick(node => {
+                    // Handle node click event
+                    console.log('Node clicked:', node);
+                });
+
+            // Optional: Control the camera position and zoom
+            graph.cameraPosition(100, 100, 100); // Set initial camera position
+
+            // Optional: Add interaction events
+            graph.onNodeHover(node => {
+                // Handle node hover event
+                //console.log('Node hovered:', node);
+            });
+        }).catch(error => console.error('Error fetching CSV data:', error));
+    </script>
+</body>
+
+</html>

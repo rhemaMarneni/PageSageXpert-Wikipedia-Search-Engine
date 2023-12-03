@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PageSage - Your Django App</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+        text-align: center;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+        text-align: center;
+        /* position: fixed; */
+        bottom: 0;
+        width: 100%;
+      }
+
+      .element {
+        margin: 2em;
+        padding: 2em;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      label {
+        margin-right: 1em;
+      }
+
+      input {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        flex-grow: 1;
+        margin-right: 5px;
+      }
+
+      button {
+        width: 100px;
+        padding: 0.5em 1em;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      h2 {
+        margin-top: 1em;
+        color: #333;
+      }
+
+      p {
+        color: #fff; /* Change the text color to white */
+        font-size: 16px; /* Increase font size for better visibility */
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 1em;
+      }
+      #recommendations {
+        margin-top: 1em;
+      }
+
+      #recommendations h2 {
+        color: #333;
+      }
+
+      #recommendations ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      #recommendations li {
+        margin: 8px;
+        padding: 16px;
+        border: 1.5px solid #ddd; /* Add border for a box effect */
+        border-radius: 3.5px;
+        box-sizing: border-box;
+        width: 400px;
+        height: auto;
+        cursor: pointer;
+      }
+
+      #recommendations li:hover{
+        text-decoration: underline;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+      }
+
+      .user-info {
+        display: grid;
+        grid-template-columns: 95% 5%;
+        background-color: none;
+      }
+
+      .logout-button {
+        font-size: 14px;
+        width: 100%;
+        height: 30px;
+        background-color: #fff;
+        border: none;
+        outline: none;
+        border-radius: 3.5px;
+        cursor: pointer;
+        color: #333;
+        padding-top: 10px;
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to PageSageXpert</h1>
+      {% if user.is_authenticated %}
+      <div class="user-info">
+        <p style="margin-left: 30px;">Hello, {{ user.username }}!</p>
+        <a href="{% url 'logout' %}" class="logout-button">Logout <i class="fa fa-sign-out"></i>
+        </a>
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="element">
+        <h2>Wikipedia Pages</h2>
+        <form action="/question" method="get">
+          <label for="search">Search:</label>
+          <input
+            type="text"
+            id="search"
+            name="q"
+            placeholder="Enter your search text"
+          />
+          <button type="submit"><i class="fa fa-search"></i>&nbsp;Search</button>
+        </form>
+      </div>
+
+    <div id="recommendations" class="element">
+      <h2>Suggested Articles</h2>
+      <ul>
+        {% for recommendation in recommendations %}
+        <li class="toggle-case" onclick="window.open(generateWikipediaLink('{{ recommendation }}'), '_blank')">{{ recommendation }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <footer>&copy; 2023 PageSage. All rights reserved.</footer>
+    <script>
+      //toggle-case
+      document.addEventListener("DOMContentLoaded", function () {
+        var listItems = document.querySelectorAll(".toggle-case");
+
+        listItems.forEach(function (item) {
+          var text = item.textContent;
+          item.textContent = toggleCase(text);
+        });
+
+        function toggleCase(text) {
+          return text
+            .split(" ")
+            .map(function (word) {
+              return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            })
+            .join(" ");
+        }
+      });
+
+      //recommendation urls
+      function generateWikipediaLink(title) {
+            console.log(title);
+            title = title.split(" ")
+            .map(function (word) {
+              return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            })
+            .join("_");
+            return `https://en.wikipedia.org/wiki/${title}`;
+        }
+    </script>
+  </body>
+</html>
