@@ -1,4 +1,7 @@
 # PageSageXpert
+
+(This project was done as a part of my coursework for "CS543: Massive Data Storage, Retrieval and Deep Learning" under Prof. James Abello at Rutgers University)
+
 A Wikipedia Application based on PageRank
 
 <img width="781" alt="pagesagexpert_outline" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/18c78201-22e8-4e5f-b4b1-eef0958174f3">
