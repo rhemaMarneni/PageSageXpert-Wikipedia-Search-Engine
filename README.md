@@ -23,3 +23,13 @@ computation across 1000 partitions, resulting in a more efficient processing pip
 • The application produces a subgraph of the relevant search results, showing how the resulting articles are connected (3D Force Directed Layout)
 • Performed Text summarization on each article using BART technique
 • For each user, the application suggests articles for the user based on previous search history
+
+Dataset: https://www.kaggle.com/datasets/kenshoresearch/kensho-derived-wikimedia-data
+Youtube link to Graph City: https://www.youtube.com/watch?v=azRk8F7-KRE
+Original Graph City Repository: https://github.com/endlesstory0428/Graph-Cities/tree/main
+
+
+**CONTRIBUTORS**
+1. Rhema Marneni @RutgersUniversity-NewBrunswick
+2. Bhargavi Chinthapatla @RutgersUniversity-NewBrunswick
+3. Saman Ebrahimi @RutgersUniversity-NewBrunswick
