@@ -18,11 +18,10 @@ Dataset Link: https://www.kaggle.com/datasets/kenshoresearch/kensho-derived-wiki
 
 <img width="766" alt="Screenshot 2023-12-03 at 5 49 00 PM" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/966f2310-7948-4d55-8356-c2f2c4b2b615">
 
-• Achieved 100% accuracy by implementing the Block Stripe Analysis technique for PageRank to optimize the
-computation across 1000 partitions, resulting in a more efficient processing pipeline
-• The application produces a subgraph of the relevant search results, showing how the resulting articles are connected (3D Force Directed Layout)
-• Performed Text summarization on each article using BART technique
-• For each user, the application suggests articles for the user based on previous search history
+• Achieved 100% accuracy by implementing the Block Stripe Analysis technique for PageRank to optimize the computation across 1000 partitions, resulting in a more efficient processing pipeline <br>
+• The application produces a subgraph of the relevant search results, showing how the resulting articles are connected (3D Force Directed Layout)<br>
+• Performed Text summarization on each article using BART technique<br>
+• For each user, the application suggests articles for the user based on previous search history<br>
 
 Dataset: https://www.kaggle.com/datasets/kenshoresearch/kensho-derived-wikimedia-data
 Youtube link to Graph City: https://www.youtube.com/watch?v=azRk8F7-KRE
