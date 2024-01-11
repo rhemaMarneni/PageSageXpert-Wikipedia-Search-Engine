@@ -15,6 +15,7 @@ _Original Graph City Repository_: https://github.com/endlesstory0428/Graph-Citie
 • Computed PageRank on entire wikipedia dataset until 01 Dec 2019, and built an efficient search engine that produces top 10 pages for a given keyword, based on pagerank
 
 <img width="1470" alt="pagesagexpert" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/e27ebd00-70b6-4e05-abef-8cb09c3190ca">
+<img width="1015" alt="Screenshot 2024-01-10 at 7 02 01 PM" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/58d37e16-cc93-41e0-a763-2c64b982c086">
 
 • Visualized wikidata dataset (51 million vertices and 141 million edges) as a Graph City
 
@@ -22,6 +23,7 @@ _Original Graph City Repository_: https://github.com/endlesstory0428/Graph-Citie
 
 • Achieved 100% accuracy by implementing the Block Stripe Analysis technique for PageRank to optimize the computation across 1000 partitions, resulting in a more efficient processing pipeline <br>
 • The application produces a subgraph of the relevant search results, showing how the resulting articles are connected (3D Force Directed Layout)<br>
+<img width="310" alt="Screenshot 2024-01-10 at 7 00 14 PM" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/9ba29131-f38a-4811-b7c2-76b7dc43e64d"><br>
 • Performed Text summarization on each article using BART technique<br>
 • For each user, the application suggests articles for the user based on previous search history<br>
 
