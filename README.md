@@ -10,6 +10,7 @@ _Dataset_: https://www.kaggle.com/datasets/kenshoresearch/kensho-derived-wikimed
 _Youtube link to Graph City_: https://www.youtube.com/watch?v=azRk8F7-KRE<br>
 _Original Graph City Repository_: https://github.com/endlesstory0428/Graph-Cities/tree/main<br>
 
+**##Languages, Tools and Libraries:**
 **Python, Apache Spark, Django, HTML, CSS, JS, SQLite, Neo4j, 3D Force Graph**
 
 • Computed PageRank on entire wikipedia dataset until 01 Dec 2019, and built an efficient search engine that produces top 10 pages for a given keyword, based on pagerank
