@@ -4,14 +4,18 @@
 https://docs.google.com/document/d/15nH_5_L9TQo82f4hSuKDSVl_tmNtUKao/edit<br>
 A Wikipedia Application based on PageRank
 
+## **Project Outline**
+
 <img width="781" alt="pagesagexpert_outline" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/18c78201-22e8-4e5f-b4b1-eef0958174f3">
 
 _Dataset_: https://www.kaggle.com/datasets/kenshoresearch/kensho-derived-wikimedia-data<br>
 _Youtube link to Graph City_: https://www.youtube.com/watch?v=azRk8F7-KRE<br>
 _Original Graph City Repository_: https://github.com/endlesstory0428/Graph-Cities/tree/main<br>
 
-**##Languages, Tools and Libraries:**
+## **Languages, Tools and Libraries:**
 **Python, Apache Spark, Django, HTML, CSS, JS, SQLite, Neo4j, 3D Force Graph**
+
+## **Project Preview**
 
 • Computed PageRank on entire wikipedia dataset until 01 Dec 2019, and built an efficient search engine that produces top 10 pages for a given keyword, based on pagerank
 
