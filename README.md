@@ -37,12 +37,17 @@ _Original Graph City Repository_: https://github.com/endlesstory0428/Graph-Citie
 
 <img width="766" alt="Screenshot 2023-12-03 at 5 49 00 PM" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/966f2310-7948-4d55-8356-c2f2c4b2b615">
 
-
 • The application produces a **subgraph of the relevant search results**, showing how the resulting articles are connected (3D Force Directed Layout)<br>
 <img width="310" alt="Screenshot 2024-01-10 at 7 00 14 PM" src="https://github.com/rhemaMarneni/PageSageXpert/assets/67055118/9ba29131-f38a-4811-b7c2-76b7dc43e64d"><br>
 • Performed Text summarization on each article using BART technique<br>
-• For each user, the application suggests articles for the user based on previous search history<br>
-
+• For each user, the application suggests articles for the user based on previous search history<be>
+<br>
+## **Steps to Run**
+1. Download the project directory
+2. On the command line, navigate to the project directory -> mds_app
+3. Then enter `python manage.py runserver` (make sure python is already installed in your computer)
+4. You will see an address like http://127.0.0.1:8000/ or with any other port number than 8000
+5. Copy and paste that into your browser, the application should now run in your browser
 
 **CONTRIBUTORS**
 1. Rhema Marneni @RutgersUniversity-NewBrunswick
