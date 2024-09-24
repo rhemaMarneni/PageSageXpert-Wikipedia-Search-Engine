@@ -1,6 +1,5 @@
 # PageSageXpert: A Search Engine for Wikipedia Data
 
-(This project was done as a part of my coursework for "CS543: Massive Data Storage, Retrieval and Deep Learning" in Fall 2023 under Prof. James Abello at Rutgers University)<br>
 <br>
 **🥇 Award for "Exceptional Project" by Rutgers CS Department**
 <br>
