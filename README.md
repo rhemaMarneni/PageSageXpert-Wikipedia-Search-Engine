@@ -1,7 +1,7 @@
 # PageSageXpert: A Search Engine for Wikipedia Data
 
 <br>
-**🥇 Award for "Exceptional Project" by Rutgers CS Department**
+<b>🥇 "Outstanding Project Award" by Rutgers CS Department</b>
 <br>
 <br>
 For full project report and detailed explanation, please read the report below:<br>
